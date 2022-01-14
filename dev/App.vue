@@ -12,6 +12,12 @@
       :model="data"
       default-tree-node-name="new node"
       default-leaf-node-name="new leaf"
+      default-add-tree-node-title="create node"
+      default-add-leaf-node-title="create leaf"
+      default-delete-tree-node-title="delete node"
+      default-delete-leaf-node-title="delete leaf"
+      default-edit-tree-node-title="rename node"
+      default-edit-leaf-node-title="rename leaf"
       v-bind:default-expanded="false"
     >
       <template v-slot:leafNameDisplay="slotProps">

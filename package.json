@@ -14,7 +14,6 @@
     "prepublish": "npm run build"
   },
   "main": "dist/vue-tree-list.umd.min.js",
-  "dependencies": {},
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
@@ -35,8 +34,7 @@
     "lint-staged": "^10.0.4",
     "prettier": "^1.19.1",
     "prettier-eslint-cli": "^5.0.0",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue": "^2.6.10"
   },
   "lint-staged": {
     "**/*.{js,json,md,vue}": [

@@ -75,12 +75,20 @@
               <i class="vtl-icon vtl-icon-plus"></i>
             </slot>
           </span>
-          <span title="edit" @click.stop.prevent="setEditable" v-if="!model.editNodeDisabled">
+          <span
+            :title="editNodeTitle"
+            @click.stop.prevent="setEditable"
+            v-if="!model.editNodeDisabled"
+          >
             <slot name="editNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
               <i class="vtl-icon vtl-icon-edit"></i>
             </slot>
           </span>
-          <span title="delete" @click.stop.prevent="delNode" v-if="!model.delNodeDisabled">
+          <span
+            :title="deleteNodeTitle"
+            @click.stop.prevent="delNode"
+            v-if="!model.delNodeDisabled"
+          >
             <slot name="delNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
               <i class="vtl-icon vtl-icon-trash"></i>
             </slot>
@@ -106,6 +114,8 @@
     >
       <item
         v-for="model in model.children"
+        :default-add-tree-node-title="defaultAddTreeNodeTitle"
+        :default-add-leaf-node-title="defaultAddLeafNodeTitle"
         :default-tree-node-name="defaultTreeNodeName"
         :default-leaf-node-name="defaultLeafNodeName"
         :default-expanded="defaultExpanded"
@@ -176,6 +186,22 @@ export default {
       type: String,
       default: 'Add Leaf Node'
     },
+    defaultEditTreeNodeTitle: {
+      type: String,
+      default: 'Edit Tree Node'
+    },
+    defaultEditLeafNodeTitle: {
+      type: String,
+      default: 'Edit Leaf Node'
+    },
+    defaultDeleteTreeNodeTitle: {
+      type: String,
+      default: 'Delete Tree Node'
+    },
+    defaultDeleteLeafNodeTitle: {
+      type: String,
+      default: 'Delete Leaf Node'
+    },
     defaultExpanded: {
       type: Boolean,
       default: true
@@ -210,6 +236,14 @@ export default {
         'vtl-drag-disabled': dragDisabled,
         'vtl-disabled': disabled
       }
+    },
+
+    editNodeTitle() {
+      return this.model.isLeaf ? this.defaultEditLeafNodeTitle : this.defaultEditTreeNodeTitle
+    },
+
+    deleteNodeTitle() {
+      return this.model.isLeaf ? this.defaultDeleteLeafNodeTitle : this.defaultDeleteTreeNodeTitle
     }
   },
   beforeCreate() {
