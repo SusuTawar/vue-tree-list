@@ -55,6 +55,7 @@
           :value="model.name"
           @input="updateName"
           @blur="setUnEditable"
+          @keyup.enter="setUnEditable"
         />
         <div class="vtl-operation" v-show="isHover">
           <span
