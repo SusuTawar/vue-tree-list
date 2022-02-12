@@ -4,6 +4,7 @@
     <vue-tree-list
       @click="onClick"
       @change-name="onChangeName"
+      @after-change-name="onAfterChangeName"
       @delete-node="onDel"
       @add-node="onAddNode"
       @drop="drop"
@@ -106,6 +107,11 @@ export default {
     },
 
     onChangeName(params) {
+      // eslint-disable-next-line no-console
+      console.log(params)
+    },
+
+    onAfterChangeName(params) {
       // eslint-disable-next-line no-console
       console.log(params)
     },

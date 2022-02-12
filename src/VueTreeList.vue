@@ -55,6 +55,7 @@
           :value="model.name"
           @input="updateName"
           @blur="setUnEditable"
+          @keyup.enter="setUnEditable"
         />
         <div class="vtl-operation" v-show="isHover">
           <span
@@ -294,7 +295,7 @@ export default {
       this.editable = false
       var oldName = this.model.name
       this.model.changeName(e.target.value)
-      this.rootNode.$emit('change-name', {
+      this.rootNode.$emit('after-change-name', {
         id: this.model.id,
         oldName: oldName,
         newName: e.target.value,
