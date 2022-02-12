@@ -294,7 +294,7 @@ export default {
       this.editable = false
       var oldName = this.model.name
       this.model.changeName(e.target.value)
-      this.rootNode.$emit('change-name', {
+      this.rootNode.$emit('after-change-name', {
         id: this.model.id,
         oldName: oldName,
         newName: e.target.value,
