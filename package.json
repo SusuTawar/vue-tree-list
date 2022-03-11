@@ -11,7 +11,8 @@
     "lint": "vue-cli-service lint",
     "lint-staged": "lint-staged",
     "commit": "git-cz",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "prepare": "npm run build"
   },
   "main": "dist/vue-tree-list.umd.min.js",
   "devDependencies": {
